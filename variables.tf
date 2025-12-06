@@ -70,16 +70,6 @@ variable tags {
 
 variable ingress_values {
   description = "List of ingress rules for security group"
-  type = list(object({
-    from_port   = number
-    protocol    = string
-    to_port     = number
-  }))
-  default = [
-    {
-      from_port = 443
-      protocol  = "tcp"
-      to_port   = 443
-    }
-  ]
+  type = tuple([ number, string, number ])
+  default = [ 443, "tcp", 443 ]
 }
