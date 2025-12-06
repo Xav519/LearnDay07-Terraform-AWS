@@ -43,7 +43,7 @@ variable "associate_public_ip" {
 variable "cidr_block" {
   description = "The CIDR block for the VPC"
   type        = list(string)
-  default     = ["10.0.0.0/8", "192.168.0.0/16", "172.16.0.0/12"]
+  default     = ["10.0.0.0/16", "192.168.0.0/16", "172.16.0.0/12"]
 }
 
 variable allowed_vm_types {
