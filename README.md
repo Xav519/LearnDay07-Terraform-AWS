@@ -216,3 +216,7 @@ Day 7 exercises gave hands-on practice using Terraform's typed variables to:
 * validate inputs using lists/sets,
 * enforce allowed types and regions,
 * and aggregate deployment metadata via outputs.
+
+## Reference
+- Terraform AWS Provider Documentation. Retrieved from https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+- Terraform Variable Type Constraints Tutorial. Retrieved from https://www.youtube.com/watch?v=gu2oCJ9DQiQ&list=PLl4APkPHzsUXcfBSJDExYR-a4fQiZGmMp&index=8
