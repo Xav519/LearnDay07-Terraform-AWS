@@ -1,4 +1,4 @@
-# Terraform Variable Type Constraints — Day 7 Summary
+# Terraform Variable Type Constraints - Day 7 Summary
 
 ## Overview
 
@@ -10,13 +10,13 @@ Each task demonstrates a specific variable type and how it drives AWS resource c
 
 ## Tasks & What I Implemented
 
-### Task 1 — `string` (environment, region, bucket_name)
+### Task 1 - `string` (environment, region, bucket_name)
 
 **Variables**
 
-* `environment` (string) — default: `dev`
-* `region` (string) — default: `us-east-1`
-* `bucket_name` (string) — default: `my-unique-bucket-12345-519`
+* `environment` (string) - default: `dev`
+* `region` (string) - default: `us-east-1`
+* `bucket_name` (string) - default: `my-unique-bucket-12345-519`
 
 **Objective**
 Use string variables to set the AWS provider region, bucket names, and enforce a naming prefix convention.
@@ -29,11 +29,11 @@ Use string variables to set the AWS provider region, bucket names, and enforce a
 
 ---
 
-### Task 2 — `number` (instance_count)
+### Task 2 - `number` (instance_count)
 
 **Variable**
 
-* `instance_count` (number) — default: `2`
+* `instance_count` (number) - default: `2`
 
 **Objective**
 Control how many EC2 instances are created using `count`.
@@ -44,12 +44,12 @@ Control how many EC2 instances are created using `count`.
 
 ---
 
-### Task 3 — `bool` (monitoring_enabled, associate_public_ip)
+### Task 3 - `bool` (monitoring_enabled, associate_public_ip)
 
 **Variables**
 
-* `monitoring_enabled` / `var.config.monitoring` (bool) — default: `true`
-* `associate_public_ip` (bool) — default: `true`
+* `monitoring_enabled` / `var.config.monitoring` (bool) - default: `true`
+* `associate_public_ip` (bool) - default: `true`
 
 **Objective**
 Control binary flags on EC2 resources.
@@ -61,11 +61,11 @@ Control binary flags on EC2 resources.
 
 ---
 
-### Task 4 — `list(string)` (cidr_block)
+### Task 4 - `list(string)` (cidr_block)
 
 **Variable**
 
-* `cidr_block` (list(string)) — `["10.0.0.0/16", "192.168.0.0/16", "172.16.0.0/12"]`
+* `cidr_block` (list(string)) - `["10.0.0.0/16", "192.168.0.0/16", "172.16.0.0/12"]`
 
 **Objective**
 Use a list for ordered network CIDR definitions.
@@ -77,11 +77,11 @@ Use a list for ordered network CIDR definitions.
 
 ---
 
-### Task 5 — `list(string)` (allowed_vm_types)
+### Task 5 - `list(string)` (allowed_vm_types)
 
 **Variable**
 
-* `allowed_vm_types` (list(string)) — `["t2.micro", "t2.small", "t3.micro", "t3.small"]`
+* `allowed_vm_types` (list(string)) - `["t2.micro", "t2.small", "t3.micro", "t3.small"]`
 
 **Objective**
 Enforce allowed EC2 instance types.
@@ -93,11 +93,11 @@ Enforce allowed EC2 instance types.
 
 ---
 
-### Task 6 — `set(string)` (allowed_regions)
+### Task 6 - `set(string)` (allowed_regions)
 
 **Variable**
 
-* `allowed_regions` (set(string)) — `["us-east-1","us-west-2","eu-west-1"]`
+* `allowed_regions` (set(string)) - `["us-east-1","us-west-2","eu-west-1"]`
 
 **Objective**
 Validate that deployments only occur in permitted regions.
@@ -108,11 +108,11 @@ Validate that deployments only occur in permitted regions.
 
 ---
 
-### Task 7 — `map(string)` (tags)
+### Task 7 - `map(string)` (tags)
 
 **Variable**
 
-* `tags` (map(string)) — `{ Environment = "dev", Name = "dev-Instance", created_by = "terraform" }`
+* `tags` (map(string)) - `{ Environment = "dev", Name = "dev-Instance", created_by = "terraform" }`
 
 **Objective**
 Propagate metadata and cost tags to resources.
@@ -124,11 +124,11 @@ Propagate metadata and cost tags to resources.
 
 ---
 
-### Task 8 — `tuple` (ingress_values)
+### Task 8 - `tuple` (ingress_values)
 
 **Variable**
 
-* `ingress_values` (tuple([number, string, number])) — `[443, "tcp", 443]`
+* `ingress_values` (tuple([number, string, number])) - `[443, "tcp", 443]`
 
 **Objective**
 Force a strictly typed sequence for security group ingress values.
@@ -143,11 +143,11 @@ Force a strictly typed sequence for security group ingress values.
 
 ---
 
-### Task 9 — `object` (config)
+### Task 9 - `object` (config)
 
 **Variable**
 
-* `config` (object) — `{ region = "us-east-1", monitoring = true, instance_count = 1 }`
+* `config` (object) - `{ region = "us-east-1", monitoring = true, instance_count = 1 }`
 
 **Objective**
 Group related configuration attributes.
@@ -160,7 +160,7 @@ Group related configuration attributes.
 
 ---
 
-### Task 10 — Mixed Types (deployment_summary)
+### Task 10 - Mixed Types (deployment_summary)
 
 **Objective**
 Create an aggregated output summarizing deployment.
