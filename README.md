@@ -162,7 +162,7 @@ output "deployment_summary" {
 
 ---
 
-## Notes & Gotchas
+## Notes
 - Ensure CIDR sizes are valid for the resource you're creating (e.g., VPC requires a valid network with correct mask size).
 - Validation/preconditions help prevent misconfiguration (region restrictions, allowed instance types).
 - When using lists and tuples, index carefully to avoid out-of-range errors.
@@ -176,7 +176,3 @@ This Day 7 exercise gave hands-on practice using Terraform's typed variables to:
 - control counts and booleans,
 - validate inputs with sets/lists,
 - and aggregate deployment metadata using maps and outputs.
-
-If you want, I can also:
-- generate a complete `main.tf` example implementing all tasks,
-- or create a ZIP with example `.tf` files alongside this README.
