@@ -6,6 +6,8 @@ This repository contains Day 7 exercises focusing on Terraform variable type con
 
 Each task demonstrates a specific variable type and how it drives AWS resource configuration and validation.
 
+*Refer to Day07_Tasks.md for information on the tasks.*
+
 ---
 
 ## Tasks & What I Implemented
