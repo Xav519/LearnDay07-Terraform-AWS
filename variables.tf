@@ -45,3 +45,9 @@ variable allowed_vm_types {
   type        = list(string)
   default     = ["t2.micro", "t2.small", "t3.micro", "t3.small"]
 }
+
+variable allowed_regions {
+  description = "List of allowed AWS regions"
+  type        = set(string)
+  default     = ["us-east-1", "us-west-2", "eu-west-1"]
+}
