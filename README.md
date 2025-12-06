@@ -145,78 +145,14 @@ Create an aggregated output summarizing deployment.
 **Example**
 ```hcl
 output "deployment_summary" {
+  description = "Summary of the deployment"
   value = {
     environment    = var.environment
-    instance_count = var.instance_count
-    name_tag       = var.tags["Name"]
+    instance_count = var.config.instance_count
+    name_tag = aws_instance.example[0].tags["Name"]
   }
 }
 ```
-
----
-
-## Example variables.tf (summary)
-```hcl
-variable "environment" {
-  type    = string
-  default = "dev"
-}
-
-variable "region" {
-  type    = string
-  default = "us-east-1"
-}
-
-variable "instance_count" {
-  type    = number
-  default = 1
-}
-
-variable "monitoring_enabled" {
-  type    = bool
-  default = true
-}
-
-variable "associate_public_ip" {
-  type    = bool
-  default = true
-}
-
-variable "cidr_block" {
-  type    = list(string)
-  default = ["10.0.0.0/8", "192.168.0.0/16", "172.16.0.0/12"]
-}
-
-variable "allowed_vm_types" {
-  type    = list(string)
-  default = ["t2.micro","t2.small","t3.micro","t3.small"]
-}
-
-variable "allowed_region" {
-  type    = set(string)
-  default = ["us-east-1","us-west-2","eu-west-1"]
-}
-
-variable "tags" {
-  type = map(string)
-  default = { Environment = "dev", Name = "dev-Instance", created_by = "terraform" }
-}
-
-variable "ingress_values" {
-  type    = tuple([number, string, number])
-  default = [443, "tcp", 443]
-}
-
-variable "config" {
-  type = object({
-    region         = string
-    monitoring     = bool
-    instance_count = number
-  })
-  default = { region = "us-east-1", monitoring = true, instance_count = 1 }
-}
-```
-
 ---
 
 ## How to run / quick commands
