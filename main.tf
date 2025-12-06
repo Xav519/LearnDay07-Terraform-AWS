@@ -9,8 +9,8 @@ resource "aws_s3_bucket" "example" {
 resource "aws_instance" "example" {
   ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
   instance_type = var.allowed_vm_types[0]
-  count         = var.instance_count
-  monitoring = var.monitoring_enabled
+  count         = var.config.instance_count
+  monitoring = var.config.monitoring
   associate_public_ip_address = var.associate_public_ip
 
   lifecycle {

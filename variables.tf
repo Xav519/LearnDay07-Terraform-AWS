@@ -73,3 +73,17 @@ variable ingress_values {
   type = tuple([ number, string, number ])
   default = [ 443, "tcp", 443 ]
 }
+
+variable "config" {
+  description = "Various configuration settings"
+  type        = object({
+    region = string,
+    monitoring = bool,
+    instance_count = number
+  })
+  default     = {
+    region = "us-east-1",
+    monitoring = true,
+    instance_count = 1
+  }
+}
