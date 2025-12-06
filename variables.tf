@@ -39,3 +39,9 @@ variable "cidr_block" {
   type        = list(string)
   default     = ["10.0.0.0/8", "192.168.0.0/16", "172.16.0.0/12"]
 }
+
+variable allowed_vm_types {
+  description = "List of allowed VM types"
+  type        = list(string)
+  default     = ["t2.micro", "t2.small", "t3.micro", "t3.small"]
+}
