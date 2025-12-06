@@ -8,10 +8,19 @@ resource "aws_s3_bucket" "example" {
 
 resource "aws_instance" "example" {
   ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
-  instance_type = "t2.micro"
+  instance_type = var.allowed_vm_types[0]
   count         = var.instance_count
   monitoring = var.monitoring_enabled
   associate_public_ip_address = var.associate_public_ip
+
+  lifecycle {
+    precondition {
+      error_message = "Instance type must be in the allowed list"
+      #check that the instance_type is part of the allowed list
+      #checks if vm.allowed_vm_types[0] is in the var.allowed_vm_types list
+      condition     = contains(var.allowed_vm_types, var.allowed_vm_types[0])
+    }
+  }
 
   tags = {
     Name        = "ExampleInstance"
