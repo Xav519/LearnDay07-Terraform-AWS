@@ -67,3 +67,19 @@ variable tags {
     created_by = "terraform"
     }
 }
+
+variable ingress_values {
+  description = "List of ingress rules for security group"
+  type = list(object({
+    from_port   = number
+    protocol    = string
+    to_port     = number
+  }))
+  default = [
+    {
+      from_port = 443
+      protocol  = "tcp"
+      to_port   = 443
+    }
+  ]
+}
