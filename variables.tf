@@ -2,6 +2,12 @@ variable "region" {
   description = "The AWS region to deploy resources in"
   type        = string
   default     = "us-east-1"
+
+# Enforces the region variable is one of the unique values defined in the allowed_region set
+  validation {
+    condition     = contains(var.allowed_regions, var.region)
+    error_message = "Region must be one of the allowed regions."
+  }
 }
 
 variable "environment" {
