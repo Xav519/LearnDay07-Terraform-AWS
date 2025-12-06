@@ -31,10 +31,9 @@ resource "aws_instance" "example" {
 resource "aws_vpc" "example" {
   cidr_block = var.cidr_block[0]
 
-  tags = {
-    Name        = "ExampleVPC"
-    Environment = var.environment
-  }
+  # Added variable tags to the VPC resource
+  tags = var.tags 
+  
 }
 
 resource "aws_subnet" "example" {
