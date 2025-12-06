@@ -57,3 +57,13 @@ variable allowed_regions {
   type        = set(string)
   default     = ["us-east-1", "us-west-2", "eu-west-1"]
 }
+
+variable tags {
+  description = "A map of tags to assign to resources"
+  type        = map(string)
+  default     = {
+    Environment = "dev", 
+    Name = "dev-Instance", 
+    created_by = "terraform"
+    }
+}
